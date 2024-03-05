@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-customer-with-auth
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ms-customer-with-auth
+  template:
+    metadata:
+      labels:
+        app: ms-customer-with-auth
+    spec:
+      containers:
+        - name: ms-customer
+          image: customer:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8085
+        - name: proxy
+          image: proxy:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: ALLOWED_URLS
+              value: "/api/v1/customer:USER,/api/v2/customer:USER,/api/v3/customer:ADMIN,/api/v4/customer:MANAGER"
+            - name: CLIENT
+              value: "demo-client"
+            - name: SERVICE_PORT
+              value: "8085"
+          ports:
+            - name: http
+              containerPort: 9090
+          
+            
+---
+apiVersion: v1                
+kind: Service                 
+metadata:
+  name: ms-customer-with-auth 
+  labels:                     
+    app: ms-customer-with-auth
+spec:
+  selector:
+    app: ms-customer-with-auth   
+  type: LoadBalancer
+  ports:                     
+  - name: http
+    port: 9090
+    targetPort: 9090
