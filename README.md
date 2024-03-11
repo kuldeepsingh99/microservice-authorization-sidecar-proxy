@@ -16,6 +16,20 @@ But every solution has pros and cons as per project needs, like for example if w
 - Docker compose or colima
 - Keycloak 21
 
+## Keycloak
+
+Run this command to start keycloak Instance
+```
+docker run -it -p "8081:8080" -e 'KEYCLOAK_ADMIN=admin' -e 'KEYCLOAK_ADMIN_PASSWORD=admin' quay.io/keycloak/keycloak:21.0.2 start-dev
+```
+Login to keycloak 
+
+
+
+
+
+
+
 
 
 
