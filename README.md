@@ -34,24 +34,34 @@ Login to keycloak with URL - http://localhost:8080/ with username - admin and pa
 
 ![Create Realm](https://github.com/kuldeepsingh99/sidecar-proxy-authentication/blob/main/images/keycloak3.png)
 
-![Create Realm](https://github.com/kuldeepsingh99/sidecar-proxy-authentication/blob/main/images/keycloak4.png)
+![Create Realm](https://github.com/kuldeepsingh99/sidecar-proxy-authentication/blob/main/images/keycloak14.png)
 
 ![Create Realm](https://github.com/kuldeepsingh99/sidecar-proxy-authentication/blob/main/images/keycloak5.png)
 
 
 ### Make Sure the Service Account is enabled
 
-
 ![Create Realm](https://github.com/kuldeepsingh99/sidecar-proxy-authentication/blob/main/images/keycloak6.png)
 
 ### Create all the necessary Roles for the client 
 
-### Map all the roles with Service Account
+![Create Realm](https://github.com/kuldeepsingh99/sidecar-proxy-authentication/blob/main/images/keycloak15.png)
 
-### Get the access token
+![Create Realm](https://github.com/kuldeepsingh99/sidecar-proxy-authentication/blob/main/images/keycloak16.png)
 
+### Map all the roles with the Service Account
+
+![Create Realm](https://github.com/kuldeepsingh99/sidecar-proxy-authentication/blob/main/images/keycloak17.png)
+
+![Create Realm](https://github.com/kuldeepsingh99/sidecar-proxy-authentication/blob/main/images/keycloak18.png)
+
+
+### Now Try to get the access token and view the roles 
 
 ![Create Realm](https://github.com/kuldeepsingh99/sidecar-proxy-authentication/blob/main/images/keycloak7.png)
+
+![Create Realm](https://github.com/kuldeepsingh99/sidecar-proxy-authentication/blob/main/images/keycloak13.png)
+
 
 ## Deploying Service
 Make sure Kubernetes is enabled
