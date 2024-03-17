@@ -18,7 +18,7 @@ But every solution has pros and cons as per project needs, like for example if w
 
 ## Keycloak
 
-Run this command to start keycloak Instance
+Run this command to start the keycloak Instance
 ```
 docker run -it -p "8081:8080" -e 'KEYCLOAK_ADMIN=admin' -e 'KEYCLOAK_ADMIN_PASSWORD=admin' quay.io/keycloak/keycloak:21.0.2 start-dev
 ```
@@ -44,6 +44,9 @@ Login to keycloak with URL - http://localhost:8080/ with username - admin and pa
 
 ![Create Realm](https://github.com/kuldeepsingh99/sidecar-proxy-authentication/blob/main/images/keycloak6.png)
 
+### Create all the necessary Roles for the client 
+
+### Map all the roles with Service Account
 
 ### Get the access token
 
@@ -101,8 +104,16 @@ Here we can see we have two containers
   - Main container is running on port 8085
 - proxy
   - proxy container is running on port 9090
-  - Proxy has two environment variables ALLOWED_URLS, CLIENT and SERVICE_PORT
-  - In ALLOWED_URLS we specify the URL and Role Mapping ex. This URL /api/v1/customer can only be accessed by someone who has USER Role.
+  - Proxy has three environment variables **ALLOWED_URLS**, **CLIENT** and **SERVICE_PORT**
+  - In ALLOWED_URLS we specify the URL and Role Mapping ex. This URL `/api/v1/customer` can only be accessed by someone who has USER Role.
+  - CLIENT is the name of the keycloak client where Roles are mapped with the service account.
+  - SERVICE_PORT is the port on which main container is running, this is required because on this port only Side car container will forward the request.
+
+
+
+  - 
+
+
 
 
 
